@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>Configure Chart</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Type of Chart</mat-label>
+    <mat-select [(ngModel)]="selectedType">
+      <mat-option *ngFor="let chartType of types" [value]="chartType">
+        {{chartType}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <section class="diag-section">
+    <h4>Select sensor(s):</h4>
+    <p>
+      <mat-checkbox [(ngModel)]="isTemp">Temperature</mat-checkbox>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose color</mat-label>
+        <mat-select [(ngModel)]="tempColor">
+          <mat-option *ngFor="let col of colors" [value]="col">
+            {{col}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox [(ngModel)]="isHum">Humidity</mat-checkbox>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose color</mat-label>
+        <mat-select [(ngModel)]="humColor">
+          <mat-option *ngFor="let col of colors" [value]="col">
+            {{col}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox [(ngModel)]="isLig">Light</mat-checkbox>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose color</mat-label>
+        <mat-select [(ngModel)]="liColor">
+          <mat-option *ngFor="let col of colors" [value]="col">
+            {{col}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </section>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onAddClick()" [mat-dialog-close]="config" cdkFocusInitial>Add</button>
+</div>
